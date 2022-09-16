@@ -17,6 +17,7 @@
     "react-perfect-scrollbar": "^1.5.8",
     "react-query": "^3.39.2",
     "react-redux": "^8.0.2",
+    "sass": "^1.54.9",
     "tailwindcss-global-dark": "^1.0.1"
   },
   "devDependencies": {
