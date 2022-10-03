@@ -3,5 +3,6 @@
 @tailwind utilities;
 
 body {
+	@apply bg-gray text-black dark:bg-black dark:text-white;
 	font-family: "Jost", sans-serif;
 }
