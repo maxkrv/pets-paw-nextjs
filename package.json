@@ -6,12 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "lint": "next lint"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
+    "classnames": "^2.3.2",
     "next": "12.3.0",
     "next-seo": "^5.5.0",
     "next-themes": "^0.2.1",
@@ -20,19 +19,12 @@
     "react-perfect-scrollbar": "^1.5.8",
     "react-query": "^3.39.2",
     "react-redux": "^8.0.2",
+    "react-ripples": "^2.2.1",
     "sass": "^1.54.9",
     "tailwindcss-global-dark": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
-    "@storybook/addon-actions": "^6.5.12",
-    "@storybook/addon-essentials": "^6.5.12",
-    "@storybook/addon-interactions": "^6.5.12",
-    "@storybook/addon-links": "^6.5.12",
-    "@storybook/builder-webpack5": "^6.5.12",
-    "@storybook/manager-webpack5": "^6.5.12",
-    "@storybook/react": "^6.5.12",
-    "@storybook/testing-library": "^0.0.13",
     "@types/node": "18.7.18",
     "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
