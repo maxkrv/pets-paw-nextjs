@@ -1,0 +1,96 @@
+.button__ripple {
+	@apply rounded-[10px];
+
+	s {
+		background-color: rgba(255, 255, 255, 0.3) !important;
+	}
+}
+
+.button {
+	@apply p-[10px] rounded-[10px] cursor-pointer select-none inline-flex items-center justify-center gap-2
+    uppercase font-medium text-[12px] leading-[16px] tracking-[2px] transition-colors;
+
+	svg {
+		@apply transition-colors;
+	}
+
+	&:disabled {
+		@apply bg-gray text-gray-dark;
+
+		svg {
+			@apply fill-gray-dark;
+		}
+	}
+
+	&__primary {
+		@apply bg-primary text-primary-soft;
+
+		svg {
+			@apply fill-primary-soft;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				@apply bg-primary-soft text-primary;
+
+				svg {
+					@apply fill-primary;
+				}
+			}
+		}
+	}
+
+	&__primarySoft {
+		@apply bg-primary-soft text-primary gdark:bg-primary-dark;
+
+		svg {
+			@apply fill-primary;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				@apply bg-primary text-primary-soft;
+
+				svg {
+					@apply fill-primary-soft;
+				}
+			}
+		}
+	}
+
+	&__default {
+		@apply bg-white text-primary gdark:bg-black-soft;
+
+		svg {
+			@apply fill-primary;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				@apply bg-primary text-primary-soft;
+
+				svg {
+					@apply fill-primary-soft;
+				}
+			}
+		}
+	}
+
+	&__gray {
+		@apply bg-gray text-gray-dark;
+
+		svg {
+			@apply fill-gray-dark;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				@apply outline outline-2 outline-primary-soft text-primary;
+
+				svg {
+					@apply fill-primary;
+				}
+			}
+		}
+	}
+}
