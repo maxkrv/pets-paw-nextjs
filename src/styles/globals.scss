@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
 body {
 	@apply bg-gray text-black dark:bg-black dark:text-white;
+	height: calc(100vh - calc(100vh - 100%));
 	font-family: "Jost", sans-serif;
+	-webkit-tap-highlight-color: transparent;
+}
+
+#__next {
+	@apply p-8 h-full max-w-[1920px] m-auto;
 }
