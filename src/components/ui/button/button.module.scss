@@ -15,7 +15,7 @@
 	}
 
 	&:disabled {
-		@apply bg-gray text-gray-dark;
+		@apply bg-gray text-gray-dark cursor-not-allowed;
 
 		svg {
 			@apply fill-gray-dark;
