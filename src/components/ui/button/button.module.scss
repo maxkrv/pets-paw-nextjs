@@ -67,10 +67,10 @@
 
 		@media (hover: hover) {
 			&:hover {
-				@apply bg-primary text-primary-soft;
+				@apply bg-primary-soft text-primary;
 
 				svg {
-					@apply fill-primary-soft;
+					@apply fill-primary;
 				}
 			}
 		}
