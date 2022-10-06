@@ -37,14 +37,10 @@ function Button<E extends ElementType = typeof defaultElement>({
 	});
 
 	return (
-		<Ripples className={classes.button__ripple}>
-			<TagName className={buttonClasses} {...props}>
-				{isLoading && (
-					<Loader variant={loaderVariant} size={loaderSize} />
-				)}
-				{children}
-			</TagName>
-		</Ripples>
+		<TagName className={buttonClasses} {...props}>
+			{isLoading && <Loader variant={loaderVariant} size={loaderSize} />}
+			{children}
+		</TagName>
 	);
 }
 
