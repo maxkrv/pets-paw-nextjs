@@ -1,5 +1,4 @@
 import React, { ComponentProps, ElementType, ReactNode } from "react";
-import Ripples from "react-ripples";
 import classes from "./button.module.scss";
 import Loader from "../loader/loader";
 import classNames from "classnames";
@@ -10,6 +9,7 @@ type ButtonOwnProps<E extends ElementType = ElementType> = {
 	isLoading?: boolean;
 	loaderVariant?: "primary" | "white";
 	loaderSize?: "small" | "regular";
+	fullWidth?: boolean;
 	component?: E;
 };
 
@@ -24,6 +24,7 @@ function Button<E extends ElementType = typeof defaultElement>({
 	isLoading,
 	loaderVariant = "white",
 	loaderSize = "small",
+	fullWidth,
 	component,
 	...props
 }: ButtonProps<E>) {
@@ -34,6 +35,7 @@ function Button<E extends ElementType = typeof defaultElement>({
 		[classes.button__primarySoft]: variant === "primarySoft",
 		[classes.button__default]: variant === "default",
 		[classes.button__gray]: variant === "gray",
+		["w-full"]: fullWidth,
 	});
 
 	return (
