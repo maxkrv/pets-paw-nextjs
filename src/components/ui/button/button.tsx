@@ -31,12 +31,15 @@ function Button<E extends ElementType = typeof defaultElement>({
 	const TagName = component || defaultElement;
 	const buttonClasses = classNames({
 		[classes.button]: true,
+		[props.className]: true,
 		[classes.button__primary]: variant === "primary",
 		[classes.button__primarySoft]: variant === "primarySoft",
 		[classes.button__default]: variant === "default",
 		[classes.button__gray]: variant === "gray",
 		["w-full"]: fullWidth,
 	});
+
+	delete props.className;
 
 	return (
 		<TagName className={buttonClasses} {...props}>
