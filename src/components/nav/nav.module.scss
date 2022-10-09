@@ -4,39 +4,18 @@
 	}
 
 	&__container {
-		@apply flex gap-4;
+		@apply flex gap-4 sm:flex-col;
 	}
 
-	&__button {
-		&__image {
-			@apply w-[138px] h-[198px] mb-[10px] flex items-center justify-center rounded-[20px] border-4 border-white border-opacity-60 transition-colors;
-		}
-
-		&:nth-child(1) {
-			div {
-				@apply bg-purple;
-			}
-		}
-
-		&:nth-child(2) {
-			div {
-				@apply bg-success;
-			}
-		}
-
-		&:nth-child(3) {
-			div {
-				@apply bg-warning;
-			}
-		}
-
+	&__item {
+		@apply rounded-[20px];
 		@media (hover: hover) {
 			&:hover {
-				div {
+				.nav__item__image {
 					@apply border-white border-opacity-30;
 				}
 
-				button {
+				.nav__item__button {
 					@apply bg-primary-soft text-primary #{!important};
 
 					svg {
@@ -46,12 +25,20 @@
 			}
 		}
 
+		&__image {
+			@apply w-[138px] h-[198px] mb-[10px] flex items-center justify-center rounded-[20px]
+            border-4 border-white border-opacity-60 transition-colors sm:hidden;
+		}
+
+		&__button {
+		}
+
 		&__active {
-			div {
+			.nav__item__image {
 				@apply border-primary-soft border-opacity-100;
 			}
 
-			button {
+			.nav__item__button {
 				@apply bg-primary text-primary-soft #{!important};
 
 				svg {

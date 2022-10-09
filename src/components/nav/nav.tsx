@@ -17,57 +17,81 @@ const Nav: FC<NavProps> = ({ text }) => {
 			<div className={classes.nav__container}>
 				<Link href="/voting">
 					<a
-						className={`${classes.nav__button} ${getActive(
-							classes.nav__button__active,
+						className={`${classes.nav__item} ${getActive(
+							classes.nav__item__active,
 							"/voting"
 						)}`}
 					>
-						<div className={classes.nav__button__image}>
+						<div
+							className={`${classes.nav__item__image} bg-purple`}
+						>
 							<Image
 								src="/images/vote-table.svg"
+								alt="voting"
 								width={100}
 								height={125}
 							/>
 						</div>
-						<Button fullWidth variant="default">
+						<Button
+							fullWidth
+							component="div"
+							className={classes.nav__item__button}
+							variant="default"
+						>
 							voting
 						</Button>
 					</a>
 				</Link>
 				<Link href="/breeds">
 					<a
-						className={`${classes.nav__button} ${getActive(
-							classes.nav__button__active,
+						className={`${classes.nav__item} ${getActive(
+							classes.nav__item__active,
 							"/breeds"
 						)}`}
 					>
-						<div className={classes.nav__button__image}>
+						<div
+							className={`${classes.nav__item__image} bg-success`}
+						>
 							<Image
 								src="/images/pet-breeds.svg"
+								alt="breeds"
 								width={117}
 								height={163}
 							/>
 						</div>
-						<Button fullWidth variant="default">
+						<Button
+							fullWidth
+							component="div"
+							className={classes.nav__item__button}
+							variant="default"
+						>
 							breeds
 						</Button>
 					</a>
 				</Link>
 				<Link href="/gallery">
 					<a
-						className={`${classes.nav__button} ${getActive(
-							classes.nav__button__active,
+						className={`${classes.nav__item} ${getActive(
+							classes.nav__item__active,
 							"/gallery"
 						)}`}
 					>
-						<div className={classes.nav__button__image}>
+						<div
+							className={`${classes.nav__item__image} bg-warning`}
+						>
 							<Image
 								src="/images/images-search.svg"
+								alt="gallery"
 								width={112}
 								height={190}
 							/>
 						</div>
-						<Button fullWidth variant="default">
+						<Button
+							fullWidth
+							component="div"
+							className={classes.nav__item__button}
+							variant="default"
+						>
 							gallery
 						</Button>
 					</a>
