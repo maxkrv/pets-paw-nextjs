@@ -2,12 +2,20 @@ import React, { ComponentPropsWithoutRef, FC } from "react";
 import Logo from "../logo";
 import DarkModeSwitcher from "../darkModeSwitcher/darkModeSwitcher";
 import Nav from "../nav/nav";
+import classNames from "classnames";
 
 interface AsideProps extends ComponentPropsWithoutRef<"aside"> {}
 
 const Aside: FC<AsideProps> = ({ ...props }) => {
+	const asideClasses = classNames({
+		"h-full m-auto sm:w-full": true,
+		[props.className as string]: true,
+	});
+
+	delete props.className;
+
 	return (
-		<aside className="h-full m-auto sm:w-full" {...props}>
+		<aside className={asideClasses} {...props}>
 			<div className="w-full flex justify-between">
 				<Logo />
 				<DarkModeSwitcher />
