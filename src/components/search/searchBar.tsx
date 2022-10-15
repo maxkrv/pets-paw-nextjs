@@ -43,7 +43,7 @@ const SearchBar: FC<SearchBarProps> = ({ ...props }) => {
 			<input
 				type="text"
 				className={classes.search__input}
-				placeholder="SearchBar for breeds by name"
+				placeholder="Search for breeds by name"
 				value={value}
 				onChange={(e) => setValue(e.target.value)}
 				onFocus={() => setFocus(true)}
