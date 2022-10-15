@@ -1,0 +1,21 @@
+.search {
+	@apply w-full inline-flex items-center justify-center pr-[10px] bg-white rounded-[20px] gdark:bg-black-soft;
+	@media (hover: hover) {
+		&:hover {
+			@apply outline outline-2 outline-primary-soft;
+		}
+	}
+
+	&__input {
+		@apply w-full py-[15px] pr-[5px] pl-[20px] bg-transparent text-[20px] text-gray-dark;
+		border-radius: 20px 0 0 20px;
+
+		&:focus {
+			@apply outline-none text-black gdark:text-white;
+		}
+	}
+
+	&__active {
+		@apply outline outline-2 outline-primary #{!important};
+	}
+}
