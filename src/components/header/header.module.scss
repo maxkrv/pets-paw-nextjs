@@ -1,0 +1,16 @@
+.header {
+	@apply w-full flex gap-[10px];
+
+	a {
+		@apply px-[15px] rounded-[20px] #{!important};
+	}
+
+}
+
+.active {
+	@apply bg-primary text-primary-soft #{!important};
+
+	svg {
+		@apply fill-primary-soft #{!important};
+	}
+}
