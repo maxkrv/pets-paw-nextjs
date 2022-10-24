@@ -5,17 +5,10 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 import PerfectScrollbar from "react-perfect-scrollbar";
 
 interface ContainerProps extends ComponentPropsWithoutRef<"div"> {
-	title?: string;
-	headerElements?: ReactNode;
 	children: ReactNode;
 }
 
-const Container: FC<ContainerProps> = ({
-	title,
-	headerElements,
-	children,
-	...props
-}) => {
+const Container: FC<ContainerProps> = ({ children, ...props }) => {
 	const containerClasses = classNames({
 		[classes.container]: true,
 		[props.className as string]: true,
@@ -24,9 +17,7 @@ const Container: FC<ContainerProps> = ({
 
 	return (
 		<div className={containerClasses} {...props}>
-			<PerfectScrollbar component="main" options={{ swipeEasing: false }}>
-				{children}
-			</PerfectScrollbar>
+			<PerfectScrollbar component="main">{children}</PerfectScrollbar>
 		</div>
 	);
 };
