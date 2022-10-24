@@ -2,6 +2,7 @@ import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import SEO from "../../next-seo.config";
 import { DefaultSeo } from "next-seo";
+import Layout from "../components/layout/layout";
 import { ThemeProvider } from "next-themes";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -9,7 +10,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 		<>
 			<DefaultSeo {...SEO} />
 			<ThemeProvider enableSystem attribute="class">
-				<Component {...pageProps} />
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
 			</ThemeProvider>
 		</>
 	);
