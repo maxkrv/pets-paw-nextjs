@@ -1,0 +1,11 @@
+.tag {
+	@apply h-full py-[5px] px-[30px] bg-primary rounded-[10px] text-[20px] text-white tracking-[2px] uppercase font-medium;
+
+	&__primary {
+		@apply bg-primary text-white;
+	}
+
+	&__primmarySoft {
+		@apply bg-primary-soft text-primary gdark:bg-primary-dark;
+	}
+}
