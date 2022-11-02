@@ -3,7 +3,16 @@ const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
 	images: {
-		domains: ["cdn2.thecatapi.com"],
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "**.media.tumblr.com",
+			},
+			{
+				protocol: "https",
+				hostname: "**.thecatapi.com",
+			},
+		],
 	},
 };
 
