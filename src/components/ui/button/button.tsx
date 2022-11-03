@@ -18,16 +18,19 @@ export type ButtonProps<E extends ElementType> = ButtonOwnProps<E> &
 
 const defaultElement = "button";
 
-function Button<E extends ElementType = typeof defaultElement>({
-	children,
-	variant = "primary",
-	isLoading,
-	loaderVariant = "white",
-	loaderSize = "small",
-	fullWidth,
-	component,
-	...props
-}: ButtonProps<E>) {
+function Button<E extends ElementType = typeof defaultElement>(
+	{
+		children,
+		variant = "primary",
+		isLoading,
+		loaderVariant = "white",
+		loaderSize = "small",
+		fullWidth,
+		component,
+		...props
+	}: ButtonProps<E>,
+	ref: React.Ref<ButtonProps<E>>
+) {
 	const TagName = component || defaultElement;
 	const buttonClasses = classNames({
 		[classes.button]: true,
@@ -42,11 +45,11 @@ function Button<E extends ElementType = typeof defaultElement>({
 	delete props.className;
 
 	return (
-		<TagName className={buttonClasses} {...props}>
+		<TagName className={buttonClasses} {...ref} {...props}>
 			{isLoading && <Loader variant={loaderVariant} size={loaderSize} />}
 			{children}
 		</TagName>
 	);
 }
 
-export default Button;
+export default React.forwardRef(Button);
