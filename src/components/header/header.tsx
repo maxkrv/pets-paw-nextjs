@@ -19,32 +19,29 @@ const Header: FC<HeaderProps> = ({ ...props }) => {
 	return (
 		<header className={headerClasses} {...props}>
 			<SearchBar className="flex-1" />
-			<Link href="/likes">
+			<Link href="/likes" passHref>
 				<Button
 					className={getActive(classes.active, "/likes")}
 					component="a"
 					variant="default"
-					href="#"
 				>
 					<Smile />
 				</Button>
 			</Link>
-			<Link href="/favourites">
+			<Link href="/favourites" passHref>
 				<Button
 					className={getActive(classes.active, "/favourites")}
 					component="a"
 					variant="default"
-					href="#"
 				>
 					<Heart />
 				</Button>
 			</Link>
-			<Link href="/dislikes">
+			<Link href="/dislikes" passHref>
 				<Button
 					className={getActive(classes.active, "/dislikes")}
 					component="a"
 					variant="default"
-					href="#"
 				>
 					<Sad />
 				</Button>
