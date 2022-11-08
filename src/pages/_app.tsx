@@ -9,7 +9,7 @@ import {
 	Hydrate,
 	QueryClient,
 	QueryClientProvider,
-} from "react-query";
+} from "@tanstack/react-query";
 import { useState } from "react";
 import { Provider } from "react-redux";
 import store from "../store/store";
@@ -18,7 +18,16 @@ function MyApp({
 	Component,
 	pageProps,
 }: AppProps<{ dehydratedState: DehydratedState }>) {
-	const [queryClient] = useState(() => new QueryClient());
+	const [queryClient] = useState(
+		() =>
+			new QueryClient({
+				defaultOptions: {
+					queries: {
+						refetchOnWindowFocus: false,
+					},
+				},
+			})
+	);
 
 	return (
 		<>
