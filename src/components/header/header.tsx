@@ -24,6 +24,7 @@ const Header: FC<HeaderProps> = ({ ...props }) => {
 					className={getActive(classes.active, "/likes")}
 					component="a"
 					variant="default"
+					aria-label="likes"
 				>
 					<Smile />
 				</Button>
@@ -33,6 +34,7 @@ const Header: FC<HeaderProps> = ({ ...props }) => {
 					className={getActive(classes.active, "/favourites")}
 					component="a"
 					variant="default"
+					aria-label="favourites"
 				>
 					<Heart />
 				</Button>
@@ -42,6 +44,7 @@ const Header: FC<HeaderProps> = ({ ...props }) => {
 					className={getActive(classes.active, "/dislikes")}
 					component="a"
 					variant="default"
+					aria-label="dislikes"
 				>
 					<Sad />
 				</Button>

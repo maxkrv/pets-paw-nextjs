@@ -20,6 +20,7 @@ const BackButton: FC<BackButtonProps> = ({ ...props }) => {
 					className={backButtonClasses}
 					variant="primarySoft"
 					onClick={() => router.back()}
+					aria-label="back"
 					{...props}
 				>
 					<LeftArrow />

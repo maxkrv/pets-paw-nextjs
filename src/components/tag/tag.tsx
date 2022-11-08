@@ -16,9 +16,9 @@ const Tag: FC<TagProps> = ({ variant = "primary", children, ...props }) => {
 	});
 
 	return (
-		<h5 className={tagClasses} {...props}>
+		<span className={tagClasses} {...props}>
 			{children}
-		</h5>
+		</span>
 	);
 };
 

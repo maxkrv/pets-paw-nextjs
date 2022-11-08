@@ -49,7 +49,7 @@ const SearchBar: FC<SearchBarProps> = ({ ...props }) => {
 				onFocus={() => setFocus(true)}
 				onBlur={() => setFocus(false)}
 			/>
-			<Button variant="primarySoft">
+			<Button variant="primarySoft" aria-label="search">
 				<Search />
 			</Button>
 		</form>

@@ -53,7 +53,7 @@ const Nav: FC<NavProps> = ({ text }) => {
 							className={`${classes.nav__item__image} bg-success`}
 						>
 							<Image
-								src="/images/pet-breeds.svg"
+								src="/images/pet-breeds.webp"
 								alt="breeds"
 								width={117}
 								height={163}
