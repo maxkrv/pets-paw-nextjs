@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import idSlice from "./reducers/idSlice";
+import userLogSlice from "./reducers/userLogSlice";
 
 const store = configureStore({
 	reducer: {
 		id: idSlice,
+		userLog: userLogSlice,
 	},
 });
 
