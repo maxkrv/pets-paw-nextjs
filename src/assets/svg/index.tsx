@@ -1,6 +1,6 @@
-import React from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 
-export const Moon = () => {
+export const Moon: FC<ComponentPropsWithoutRef<"svg">> = ({ ...props }) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -8,6 +8,7 @@ export const Moon = () => {
 			width="13"
 			height="13"
 			viewBox="0 0 256 256"
+			{...props}
 		>
 			<defs></defs>
 			<g transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
@@ -21,39 +22,44 @@ export const Moon = () => {
 	);
 };
 
-export const LeftArrow = () => {
+export const LeftArrow: FC<ComponentPropsWithoutRef<"svg">> = ({
+	...props
+}) => {
 	return (
 		<svg
 			width="20"
 			height="20"
 			viewBox="0 0 20 20"
 			xmlns="http://www.w3.org/2000/svg"
+			{...props}
 		>
 			<path d="M4.70975 10.9901L13.3095 19.5896C13.8565 20.1369 14.7435 20.1369 15.2903 19.5896C15.8371 19.0427 15.8371 18.1558 15.2903 17.6091L7.6808 9.99988L15.29 2.39096C15.8369 1.84391 15.8369 0.957107 15.29 0.410284C14.7432 -0.136761 13.8563 -0.136761 13.3093 0.410284L4.70953 9.00985C4.43611 9.28339 4.29956 9.64153 4.29956 9.99983C4.29956 10.3583 4.43638 10.7167 4.70975 10.9901Z" />
 		</svg>
 	);
 };
 
-export const Search = () => {
+export const Search: FC<ComponentPropsWithoutRef<"svg">> = ({ ...props }) => {
 	return (
 		<svg
 			width="20"
 			height="20"
 			viewBox="0 0 20 20"
 			xmlns="http://www.w3.org/2000/svg"
+			{...props}
 		>
 			<path d="M19.361 18.2168L14.601 13.2662C15.8249 11.8113 16.4954 9.98069 16.4954 8.07499C16.4954 3.62251 12.8729 0 8.42045 0C3.96797 0 0.345459 3.62251 0.345459 8.07499C0.345459 12.5275 3.96797 16.15 8.42045 16.15C10.092 16.15 11.6849 15.6458 13.0467 14.6888L17.8429 19.677C18.0434 19.8852 18.313 20 18.602 20C18.8755 20 19.1349 19.8957 19.3319 19.7061C19.7504 19.3034 19.7637 18.6357 19.361 18.2168ZM8.42045 2.10652C11.7115 2.10652 14.3889 4.78391 14.3889 8.07499C14.3889 11.3661 11.7115 14.0435 8.42045 14.0435C5.12937 14.0435 2.45198 11.3661 2.45198 8.07499C2.45198 4.78391 5.12937 2.10652 8.42045 2.10652Z" />
 		</svg>
 	);
 };
 
-export const Smile = () => {
+export const Smile: FC<ComponentPropsWithoutRef<"svg">> = ({ ...props }) => {
 	return (
 		<svg
 			width="30"
 			height="30"
 			viewBox="0 0 30 30"
 			xmlns="http://www.w3.org/2000/svg"
+			{...props}
 		>
 			<path
 				fillRule="evenodd"
@@ -64,7 +70,7 @@ export const Smile = () => {
 	);
 };
 
-export const Sad = () => {
+export const Sad: FC<ComponentPropsWithoutRef<"svg">> = ({ ...props }) => {
 	return (
 		<svg
 			width="30"
@@ -72,6 +78,7 @@ export const Sad = () => {
 			viewBox="0 0 30 30"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
+			{...props}
 		>
 			<path
 				fillRule="evenodd"
@@ -82,7 +89,7 @@ export const Sad = () => {
 	);
 };
 
-export const Heart = () => {
+export const Heart: FC<ComponentPropsWithoutRef<"svg">> = ({ ...props }) => {
 	return (
 		<svg
 			width="30"
@@ -90,6 +97,7 @@ export const Heart = () => {
 			viewBox="0 0 30 26"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
+			{...props}
 		>
 			<path
 				fillRule="evenodd"
@@ -100,7 +108,9 @@ export const Heart = () => {
 	);
 };
 
-export const HeartFilled = () => {
+export const HeartFilled: FC<ComponentPropsWithoutRef<"svg">> = ({
+	...props
+}) => {
 	return (
 		<svg
 			width="30"
@@ -108,6 +118,7 @@ export const HeartFilled = () => {
 			viewBox="0 0 30 26"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
+			{...props}
 		>
 			<path d="M8.07107 0C3.61354 0 0 3.61354 0 8.07107C0 10.2116 0.850339 12.2646 2.36396 13.7782L14.2929 25.7071C14.6834 26.0976 15.3166 26.0976 15.7071 25.7071L27.636 13.7782C29.1497 12.2646 30 10.2116 30 8.07107C30 3.61354 26.3865 0 21.9289 0C19.7884 0 17.7354 0.850341 16.2218 2.36396L15 3.58579L13.7782 2.36396C12.2646 0.850343 10.2116 0 8.07107 0Z" />
 		</svg>
