@@ -1,5 +1,5 @@
 export interface ILog {
-	id: string;
+	id?: string;
 	createdAt: string;
 	imageId: string;
 	message: string;
