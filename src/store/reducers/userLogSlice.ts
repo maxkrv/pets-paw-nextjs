@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ILog } from "../../types/log";
+import { uuid } from "uuidv4";
 
 interface userLogState {
 	logs: ILog[];
@@ -15,6 +16,7 @@ const userLogSlice = createSlice({
 	reducers: {
 		setLog: (state, action: PayloadAction<ILog>) => {
 			const log: ILog = {
+				id: uuid(),
 				createdAt: action.payload.createdAt,
 				imageId: action.payload.imageId,
 				message: action.payload.message,
