@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import idSlice from "./reducers/idSlice";
 import userLogSlice from "./reducers/userLogSlice";
+import isFavouriteSlice from "./reducers/isFavouriteSlice";
 
 const store = configureStore({
 	reducer: {
 		id: idSlice,
 		userLog: userLogSlice,
+		isFavourite: isFavouriteSlice,
 	},
 });
 
