@@ -1,0 +1,19 @@
+.userLogItem {
+	@apply flex items-center flex-wrap gap-[20px] p-5 rounded-[10px] gdark:bg-black-light;
+
+	&__time {
+		@apply bg-white px-[10px] py-[3px] rounded-[5px] gdark:bg-black;
+	}
+
+	&__text {
+		@apply flex-1 whitespace-pre-wrap font-medium text-gray-dark sm:order-1 sm:min-w-full;
+
+		span {
+			@apply text-black gdark:text-white;
+		}
+	}
+
+	svg {
+		@apply h-5 w-5 ml-auto;
+	}
+}
