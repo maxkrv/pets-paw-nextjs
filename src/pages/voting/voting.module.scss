@@ -1,0 +1,62 @@
+.voting {
+	&__image {
+		@apply relative m-auto max-w-full h-[360px] flex items-center justify-center rounded-[20px] sm:h-[166px];
+
+		&_img {
+			@apply rounded-[20px];
+		}
+	}
+
+	&__buttons {
+		@apply absolute bottom-[-38px] flex gap-[4px] rounded-[25px] bg-white border-[4px] border-white gdark:border-black sm:bottom-[-30px];
+
+		button {
+			@apply p-[25px] rounded-none sm:p-[15px];
+
+			svg {
+				@apply fill-white opacity-50 #{!important};
+			}
+		}
+
+		button:first-child {
+			@apply bg-success rounded-tl-[20px] rounded-bl-[20px];
+
+			@media (hover: hover) {
+				&:hover {
+					@apply bg-success bg-opacity-30;
+
+					svg {
+						@apply fill-success;
+					}
+				}
+			}
+		}
+
+		button:nth-child(2) {
+			@apply bg-primary;
+
+			@media (hover: hover) {
+				&:hover {
+					@apply bg-primary bg-opacity-30 #{!important};
+
+					svg {
+						@apply fill-primary #{!important};
+					}
+				}
+			}
+		}
+
+		button:last-child {
+			@apply bg-warning  rounded-tr-[20px] rounded-br-[20px] #{!important};
+			@media (hover: hover) {
+				&:hover {
+					@apply bg-warning bg-opacity-30 #{!important};
+
+					svg {
+						@apply fill-warning #{!important};
+					}
+				}
+			}
+		}
+	}
+}
