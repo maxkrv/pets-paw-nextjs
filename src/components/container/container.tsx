@@ -4,7 +4,7 @@ import classes from "./container.module.scss";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import PerfectScrollbar from "react-perfect-scrollbar";
 
-interface ContainerProps extends ComponentPropsWithoutRef<"div"> {
+interface ContainerProps extends ComponentPropsWithoutRef<"main"> {
 	children: ReactNode;
 }
 
@@ -16,9 +16,9 @@ const Container: FC<ContainerProps> = ({ children, ...props }) => {
 	delete props.className;
 
 	return (
-		<div className={containerClasses} {...props}>
-			<PerfectScrollbar component="main">{children}</PerfectScrollbar>
-		</div>
+		<PerfectScrollbar component="main" className={containerClasses}>
+			{children}
+		</PerfectScrollbar>
 	);
 };
 
