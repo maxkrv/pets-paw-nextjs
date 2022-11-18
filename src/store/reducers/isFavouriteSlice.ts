@@ -18,7 +18,7 @@ const isFavouriteSlice = createSlice({
 			state,
 			action: PayloadAction<{
 				value?: boolean;
-				id?: null | number;
+				id?: number | null;
 			}>
 		) => {
 			state.isFavourite = action.payload.value;

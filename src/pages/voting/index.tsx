@@ -75,11 +75,11 @@ const Voting: NextPage<{ initialData: getImageResponse[] }> = ({
 	const removeFavourite = useMutation<
 		{ message: string },
 		any,
-		{ image_id: number }
+		{ favourite_id: number }
 	>({
-		mutationFn: ({ image_id }) =>
+		mutationFn: ({ favourite_id }) =>
 			FavouriteService.removeFavourite({
-				image_id,
+				favourite_id,
 			}),
 		onSuccess: () => {
 			dispatch(setIsFavourite({ value: false, id: null }));
@@ -176,7 +176,7 @@ const Voting: NextPage<{ initialData: getImageResponse[] }> = ({
 						onClick={() => {
 							if (isFavourite) {
 								removeFavourite.mutate({
-									image_id: setFavourite.data?.id
+									favourite_id: setFavourite.data?.id
 										? setFavourite.data?.id
 										: favouriteId!,
 								});

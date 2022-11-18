@@ -11,9 +11,9 @@ export const FavouriteService = {
 		});
 		return response.data;
 	},
-	removeFavourite: async ({ image_id }: { image_id: number }) => {
+	removeFavourite: async ({ favourite_id }: { favourite_id: number }) => {
 		const response = await api.delete<{ message: string }>(
-			`/favourites/${image_id}`
+			`/favourites/${favourite_id}`
 		);
 		return response.data;
 	},
