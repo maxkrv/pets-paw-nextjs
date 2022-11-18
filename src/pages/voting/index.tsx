@@ -144,75 +144,76 @@ const Voting: NextPage<{ initialData: getImageResponse[] }> = ({
 						<Loader />
 					) : (
 						<Image
+							className={classes.voting__image_img}
 							src={data?.[0].url ? data?.[0].url : ""}
 							layout="fill"
-							alt="voting image"
-							className={classes.voting__image_img}
 							priority
+							placeholder="blur"
+							blurDataURL={data?.[0].url ? data?.[0].url : ""}
+							alt="voting image"
 						/>
 					)}
-					<div className={classes.voting__buttons}>
-						<Button
-							disabled={
-								loading ||
-								setFavourite.isLoading ||
-								removeFavourite.isLoading
+				</div>
+				<div className={classes.voting__buttons}>
+					<Button
+						disabled={
+							loading ||
+							setFavourite.isLoading ||
+							removeFavourite.isLoading
+						}
+						onClick={() => {
+							voteHandler(1);
+						}}
+						aria-label="like"
+					>
+						<Smile />
+					</Button>
+					<Button
+						disabled={
+							loading ||
+							setFavourite.isLoading ||
+							removeFavourite.isLoading
+						}
+						onClick={() => {
+							if (isFavourite) {
+								removeFavourite.mutate({
+									image_id: setFavourite.data?.id
+										? setFavourite.data?.id
+										: favouriteId!,
+								});
+							} else {
+								setFavourite.mutate({
+									image_id: data?.[0].id,
+									sub_id: id,
+								});
 							}
-							onClick={() => {
-								voteHandler(1);
-							}}
-							aria-label="like"
-						>
-							<Smile />
-						</Button>
-						<Button
-							disabled={
-								loading ||
-								setFavourite.isLoading ||
-								removeFavourite.isLoading
-							}
-							onClick={() => {
-								if (isFavourite) {
-									removeFavourite.mutate({
-										image_id: setFavourite.data?.id
-											? setFavourite.data?.id
-											: favouriteId!,
-									});
-								} else {
-									setFavourite.mutate({
-										image_id: data?.[0].id,
-										sub_id: id,
-									});
-								}
-							}}
-							aria-label="favourite"
-						>
-							{setFavourite.isLoading ||
-							removeFavourite.isLoading ? (
-								<Loader
-									variant="white"
-									className="!h-[30px] !w-[30px]"
-								/>
-							) : isFavourite ? (
-								<HeartFilled />
-							) : (
-								<Heart />
-							)}
-						</Button>
-						<Button
-							disabled={
-								loading ||
-								setFavourite.isLoading ||
-								removeFavourite.isLoading
-							}
-							onClick={() => {
-								voteHandler(0);
-							}}
-							aria-label="dislike"
-						>
-							<Sad />
-						</Button>
-					</div>
+						}}
+						aria-label="favourite"
+					>
+						{setFavourite.isLoading || removeFavourite.isLoading ? (
+							<Loader
+								variant="white"
+								className="!h-[30px] !w-[30px]"
+							/>
+						) : isFavourite ? (
+							<HeartFilled />
+						) : (
+							<Heart />
+						)}
+					</Button>
+					<Button
+						disabled={
+							loading ||
+							setFavourite.isLoading ||
+							removeFavourite.isLoading
+						}
+						onClick={() => {
+							voteHandler(0);
+						}}
+						aria-label="dislike"
+					>
+						<Sad />
+					</Button>
 				</div>
 			</div>
 
