@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { uuid } from "uuidv4";
 
 interface idSliceState {
-	id: string | null;
+	id?: string | null;
 }
 
 const initialState: idSliceState = {
-	id: typeof window !== "undefined" ? localStorage.getItem("id") : null,
+	id: typeof window !== "undefined" ? localStorage.getItem("id") : undefined,
 };
 
 const idSlice = createSlice({
