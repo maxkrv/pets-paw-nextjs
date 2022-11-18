@@ -23,7 +23,7 @@ const userLogSlice = createSlice({
 				value: action.payload.value,
 			};
 
-			if (state.logs.length > 4) {
+			if (state.logs.length >= 4) {
 				state.logs.shift();
 			}
 			state.logs.push(log);
