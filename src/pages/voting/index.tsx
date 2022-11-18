@@ -144,7 +144,6 @@ const Voting: NextPage<{ initialData: getImageResponse[] }> = ({
 						<Loader />
 					) : (
 						<Image
-							className={classes.voting__image_img}
 							src={data?.[0].url ? data?.[0].url : ""}
 							layout="fill"
 							priority
