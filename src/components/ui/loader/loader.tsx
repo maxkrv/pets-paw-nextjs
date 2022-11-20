@@ -20,10 +20,19 @@ const Loader: FC<LoaderProps> = ({
 		[classes.small]: size === "small",
 		[classes.primary]: variant === "primary",
 		[classes.white]: variant === "white",
-		["absolute top-2/4 left-2/4"]: centered,
 		[props.className as string]: true,
 	});
 	delete props.className;
+
+	if (centered) {
+		return (
+			<div className="absolute right-2/4 bottom-2/4 translate-x-2/4 translate-y-2/4">
+				<span className={loaderClasses} {...props}>
+					<div className="sr-only">...Loading</div>
+				</span>
+			</div>
+		);
+	}
 
 	return (
 		<span className={loaderClasses} {...props}>
