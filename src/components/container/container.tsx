@@ -1,7 +1,6 @@
 import React, { ComponentPropsWithoutRef, FC, ReactNode } from "react";
 import classNames from "classnames";
 import classes from "./container.module.scss";
-import "react-perfect-scrollbar/dist/css/styles.css";
 import { Scrollbars } from "react-custom-scrollbars-2";
 
 interface ContainerProps extends ComponentPropsWithoutRef<"main"> {
