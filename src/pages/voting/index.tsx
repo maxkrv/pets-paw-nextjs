@@ -7,7 +7,7 @@ import Image from "next/image";
 import Button from "../../components/ui/button/button";
 import { Heart, HeartFilled, Sad, Smile } from "../../assets/svg";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { getImageResponse, ImageService } from "../../service/image.service";
+import { ImageService } from "../../service/image.service";
 import Loader from "../../components/ui/loader/loader";
 import { SetVoteServiceParams, VoteService } from "../../service/vote.service";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
@@ -18,9 +18,7 @@ import UserLog from "../../components/userLog/userLog";
 import { setLog } from "../../store/reducers/userLogSlice";
 import { setIsFavourite } from "../../store/reducers/isFavouriteSlice";
 
-const Voting: NextPage<{ initialData: getImageResponse[] }> = ({
-	initialData,
-}) => {
+const Voting: NextPage = () => {
 	const queryClient = useQueryClient();
 	const dispatch = useAppDispatch();
 	const { id } = useAppSelector((state) => state.id);
@@ -34,7 +32,6 @@ const Voting: NextPage<{ initialData: getImageResponse[] }> = ({
 			ImageService.getImages({
 				limit: 1,
 			}),
-		initialData: initialData,
 	});
 	const setVote = useMutation<SetResponse, any, SetVoteServiceParams>({
 		mutationFn: ({ image_id, sub_id, value }) =>
@@ -65,7 +62,7 @@ const Voting: NextPage<{ initialData: getImageResponse[] }> = ({
 			dispatch(
 				setLog({
 					createdAt: `${new Date().getHours()}:${new Date().getMinutes()}`,
-					imageId: data[0].id,
+					imageId: data![0].id,
 					message: "was added to Favourites",
 					value: "favourite",
 				})
@@ -86,7 +83,7 @@ const Voting: NextPage<{ initialData: getImageResponse[] }> = ({
 			dispatch(
 				setLog({
 					createdAt: `${new Date().getHours()}:${new Date().getMinutes()}`,
-					imageId: data[0].id,
+					imageId: data![0].id,
 					message: "was removed from Favourites",
 				})
 			);
@@ -94,7 +91,7 @@ const Voting: NextPage<{ initialData: getImageResponse[] }> = ({
 	});
 	const voteHandler = (value: 0 | 1): void => {
 		setVote.mutate({
-			image_id: data?.[0].id,
+			image_id: data![0].id,
 			sub_id: id ? id : "",
 			value: value,
 		});
@@ -103,7 +100,7 @@ const Voting: NextPage<{ initialData: getImageResponse[] }> = ({
 			dispatch(
 				setLog({
 					createdAt: `${new Date().getHours()}:${new Date().getMinutes()}`,
-					imageId: data[0].id,
+					imageId: data![0].id,
 					message: "was added to Likes",
 					value: "like",
 				})
@@ -112,7 +109,7 @@ const Voting: NextPage<{ initialData: getImageResponse[] }> = ({
 			dispatch(
 				setLog({
 					createdAt: `${new Date().getHours()}:${new Date().getMinutes()}`,
-					imageId: data[0].id,
+					imageId: data![0].id,
 					message: "was added to Dislikes",
 					value: "dislike",
 				})
@@ -182,7 +179,7 @@ const Voting: NextPage<{ initialData: getImageResponse[] }> = ({
 								});
 							} else {
 								setFavourite.mutate({
-									image_id: data?.[0].id,
+									image_id: data![0].id,
 									sub_id: id,
 								});
 							}
@@ -220,10 +217,5 @@ const Voting: NextPage<{ initialData: getImageResponse[] }> = ({
 		</Container>
 	);
 };
-
-export async function getServerSideProps() {
-	const initialData = await ImageService.getImages({ limit: 1 });
-	return { props: { initialData } };
-}
 
 export default Voting;
