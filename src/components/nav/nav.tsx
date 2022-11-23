@@ -1,17 +1,24 @@
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 import classes from "./nav.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "../ui/button/button";
 import getActive from "../../utils/getActive";
+import classNames from "classnames";
 
-interface NavProps {
+interface NavProps extends ComponentPropsWithoutRef<"nav"> {
 	text?: string;
 }
 
-const Nav: FC<NavProps> = ({ text }) => {
+const Nav: FC<NavProps> = ({ text, ...props }) => {
+	const navClasses = classNames({
+		[classes.nav]: true,
+		[props.className as string]: true,
+	});
+	delete props.className;
+
 	return (
-		<nav className={classes.nav}>
+		<nav className={navClasses} {...props}>
 			<h3 className={classes.nav__text}>{text}</h3>
 
 			<div className={classes.nav__container}>

@@ -1,10 +1,17 @@
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 import Link from "next/link";
+import classNames from "classnames";
 
-const Logo: FC = () => {
+const Logo: FC<ComponentPropsWithoutRef<"a">> = ({ ...props }) => {
+	const logoClasses = classNames({
+		["inline-flex items-center justify-center gap-1"]: true,
+		[props.className as string]: true,
+	});
+	delete props.className;
+
 	return (
 		<Link href="/">
-			<a className="inline-flex items-center justify-center gap-1">
+			<a className={logoClasses} {...props}>
 				<svg
 					width="24"
 					height="24"
