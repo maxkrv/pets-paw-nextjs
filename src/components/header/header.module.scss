@@ -1,10 +1,9 @@
 .header {
-	@apply w-full flex gap-[10px];
+	@apply w-full flex flex-wrap gap-[10px];
 
 	a {
-		@apply px-[15px] rounded-[20px] #{!important};
+		@apply h-[60px] w-[60px] px-[15px] rounded-[20px] #{!important};
 	}
-
 }
 
 .active {
