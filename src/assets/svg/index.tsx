@@ -141,7 +141,25 @@ export const BurgerMenu: FC<ComponentPropsWithoutRef<"svg">> = ({
 				fillRule="evenodd"
 				clipRule="evenodd"
 				d="M30 2H0V0H30V2ZM30 10H0V8H30V10ZM30 18H0V16H30V18Z"
-				fill="#FF868E"
+			/>
+		</svg>
+	);
+};
+
+export const Close: FC<ComponentPropsWithoutRef<"svg">> = ({ ...props }) => {
+	return (
+		<svg
+			width="26"
+			height="26"
+			viewBox="0 0 26 26"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			{...props}
+		>
+			<path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M11.5859 12.9996L0.292969 1.70669L1.70718 0.29248L13.0001 11.5854L24.293 0.29248L25.7072 1.70669L14.4143 12.9996L25.7072 24.2925L24.293 25.7067L13.0001 14.4138L1.70718 25.7067L0.292969 24.2925L11.5859 12.9996Z"
 			/>
 		</svg>
 	);
