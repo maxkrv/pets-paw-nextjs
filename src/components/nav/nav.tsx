@@ -5,12 +5,16 @@ import Image from "next/image";
 import Button from "../ui/button/button";
 import getActive from "../../utils/getActive";
 import classNames from "classnames";
+import { useAppDispatch } from "../../hooks/redux";
+import { closeDrawer } from "../../store/reducers/drawerSlice";
 
 interface NavProps extends ComponentPropsWithoutRef<"nav"> {
 	text?: string;
 }
 
 const Nav: FC<NavProps> = ({ text, ...props }) => {
+	const dispatch = useAppDispatch();
+
 	const navClasses = classNames({
 		[classes.nav]: true,
 		[props.className as string]: true,
@@ -28,6 +32,7 @@ const Nav: FC<NavProps> = ({ text, ...props }) => {
 							classes.nav__item__active,
 							"/voting"
 						)}`}
+						onClick={() => dispatch(closeDrawer())}
 					>
 						<div
 							className={`${classes.nav__item__image} bg-purple`}
@@ -55,6 +60,7 @@ const Nav: FC<NavProps> = ({ text, ...props }) => {
 							classes.nav__item__active,
 							"/breeds"
 						)}`}
+						onClick={() => dispatch(closeDrawer())}
 					>
 						<div
 							className={`${classes.nav__item__image} bg-success`}
@@ -82,6 +88,7 @@ const Nav: FC<NavProps> = ({ text, ...props }) => {
 							classes.nav__item__active,
 							"/gallery"
 						)}`}
+						onClick={() => dispatch(closeDrawer())}
 					>
 						<div
 							className={`${classes.nav__item__image} bg-warning`}
