@@ -27,10 +27,10 @@ const Header: FC<HeaderProps> = ({ ...props }) => {
 	});
 	delete props.className;
 
-	const xl = useMediaQuery("(min-width: 1280px)");
+	const xl = useMediaQuery("(max-width: 1280px)");
 
 	useEffect(() => {
-		if (xl) {
+		if (!xl) {
 			dispatch(closeDrawer());
 		}
 	}, [xl]);
@@ -79,7 +79,7 @@ const Header: FC<HeaderProps> = ({ ...props }) => {
 				</Link>
 			</header>
 
-			{!xl && (
+			{xl && (
 				<DynamicDrawer className="bg-gray dark:bg-black">
 					<div className="p-[20px]">
 						<div className="w-full flex">
