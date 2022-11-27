@@ -79,28 +79,28 @@ const Header: FC<HeaderProps> = ({ ...props }) => {
 				</Link>
 			</header>
 
-			<DynamicDrawer className="bg-gray dark:bg-black">
-				<div className="p-[20px]">
-					<div className="w-full flex">
-						<Logo
-							className="mr-auto"
-							onClick={() => dispatch(closeDrawer())}
-						/>
-
-						<DarkModeSwitcher />
-
-						<Button
-							className="h-[60px] w-[60px] ml-[10px] !rounded-[20px]"
-							variant="default"
-							aria-label="close menu"
-							onClick={() => dispatch(closeDrawer())}
-						>
-							<Close />
-						</Button>
+			{!xl && (
+				<DynamicDrawer className="bg-gray dark:bg-black">
+					<div className="p-[20px]">
+						<div className="w-full flex">
+							<Logo
+								className="mr-auto"
+								onClick={() => dispatch(closeDrawer())}
+							/>
+							<DarkModeSwitcher />
+							<Button
+								className="h-[60px] w-[60px] ml-[10px] !rounded-[20px]"
+								variant="default"
+								aria-label="close menu"
+								onClick={() => dispatch(closeDrawer())}
+							>
+								<Close />
+							</Button>
+						</div>
+						<Nav className="flex justify-center sm:block" />
 					</div>
-					<Nav className="flex justify-center sm:block" />
-				</div>
-			</DynamicDrawer>
+				</DynamicDrawer>
+			)}
 		</>
 	);
 };
