@@ -2,6 +2,7 @@ import React, { ComponentProps, ElementType, ReactNode } from "react";
 import classes from "./button.module.scss";
 import Loader from "../loader/loader";
 import classNames from "classnames";
+import Ripple from "../ripple/ripple";
 
 type ButtonOwnProps<E extends ElementType = ElementType> = {
 	children: ReactNode;
@@ -46,6 +47,7 @@ function Button<E extends ElementType = typeof defaultElement>(
 
 	return (
 		<TagName className={buttonClasses} {...ref} {...props}>
+			<Ripple />
 			{isLoading && <Loader variant={loaderVariant} size={loaderSize} />}
 			{children}
 		</TagName>
