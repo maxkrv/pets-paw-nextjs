@@ -8,7 +8,7 @@ export interface getImageServiceParams extends GetParams {
 	mime_types?: "gif" | "jpg" | "png";
 	format?: "src" | "json";
 	category_ids?: number;
-	breed_id?: string;
+	breed_ids?: string;
 	has_breeds?: 1 | 0;
 }
 
@@ -30,7 +30,7 @@ export const ImageService = {
 		page,
 		limit,
 		category_ids,
-		breed_id,
+		breed_ids,
 		has_breeds,
 	}: getImageServiceParams) => {
 		const response = await api.get<getImageResponse[]>("/images/search", {
@@ -42,7 +42,7 @@ export const ImageService = {
 				page,
 				limit,
 				category_ids,
-				breed_id,
+				breed_ids,
 				has_breeds,
 			},
 		});
