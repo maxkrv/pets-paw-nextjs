@@ -3,6 +3,13 @@ export interface Weight {
 	metric: string;
 }
 
+export interface Image {
+	id: string;
+	width: number;
+	height: number;
+	url: string;
+}
+
 export interface Breed {
 	weight: Weight;
 	id: string;
@@ -38,4 +45,5 @@ export interface Breed {
 	wikipedia_url: string;
 	hypoallergenic: number;
 	reference_image_id: string;
+	image?: Image;
 }
