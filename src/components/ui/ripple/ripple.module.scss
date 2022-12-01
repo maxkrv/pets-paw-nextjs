@@ -6,10 +6,10 @@
 	left: 0;
 
 	span {
+		@apply bg-opacity-90 bg-gray-dark gdark:bg-white;
 		transform: scale(0);
 		border-radius: 100%;
 		position: absolute;
-		background-color: rgba(255, 255, 255, 0.9);
 		animation-name: ripple;
 		animation-duration: 0.5s;
 	}
