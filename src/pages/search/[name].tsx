@@ -64,7 +64,7 @@ const Search: NextPage<{ name: any }> = ({ name }) => {
 								component="div"
 								tabIndex="0"
 								isHoverable
-								title={item!.breeds![i].name}
+								title={item!.breeds!.map((breed) => breed.name)}
 								key={item?.id}
 							>
 								<Image
