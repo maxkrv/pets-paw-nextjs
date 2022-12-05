@@ -8,9 +8,10 @@
 	}
 
 	&__item {
-		@apply rounded-[20px];
+		@apply rounded-[20px] outline-none;
 		@media (hover: hover) {
-			&:hover {
+			&:hover,
+			&:focus {
 				.nav__item__image {
 					@apply border-white border-opacity-30;
 				}

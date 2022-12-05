@@ -1,5 +1,5 @@
 .grid__item {
-	@apply relative rounded-[20px] overflow-hidden min-h-[140px] w-full;
+	@apply relative rounded-[20px] outline-none overflow-hidden min-h-[140px] w-full;
 
 	&__wrapper {
 		@apply p-[10px];
