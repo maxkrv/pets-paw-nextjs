@@ -8,8 +8,8 @@ import { ImageService } from "../../service/image.service";
 import splitIntoChunks from "../../utils/splitIntoChunks";
 import Loader from "../../components/ui/loader/loader";
 import Grid from "../../components/grid/grid";
-import GridItem from "../../components/grid/gridItem";
 import UserLogItem from "../../components/userLog/userLogItem";
+import GridItem from "../../components/grid/gridItem";
 import Image from "next/image";
 
 const Search: NextPage<{ name: any }> = ({ name }) => {
@@ -17,6 +17,7 @@ const Search: NextPage<{ name: any }> = ({ name }) => {
 		queryKey: ["breed"],
 		queryFn: () => BreedService.getBreedByName(name),
 		refetchOnMount: true,
+		select: (data) => data.filter((breed) => breed.reference_image_id),
 	});
 	const breeds = !breed.isLoading || !breed.isFetching ? breed.data : [];
 
@@ -32,11 +33,14 @@ const Search: NextPage<{ name: any }> = ({ name }) => {
 	});
 
 	const data = splitIntoChunks(
-		images
-			.map((item) => item.data)
-			.filter((item) => typeof item !== "undefined"),
+		images.map((item) => item.data),
 		10
 	);
+	const isLoading =
+		images.some((item) => item.isLoading) ||
+		images.some((item) => item.isFetching) ||
+		breed.isLoading ||
+		breed.isFetching;
 
 	useEffect(() => {
 		breed.refetch();
@@ -45,16 +49,17 @@ const Search: NextPage<{ name: any }> = ({ name }) => {
 	return (
 		<Container>
 			<ContainerHeader title="search" />
-			{!breed.isLoading ||
-				(!breed.isFetching && (
-					<div className="text-gray-dark">
-						Search results for:{" "}
-						<span className="mb-[20px] font-medium text-black dark:text-white">
-							{name}
-						</span>
-					</div>
-				))}
-			{breed.isLoading || breed.isFetching ? (
+
+			{isLoading ? null : (
+				<div className="text-gray-dark">
+					Search results for:{" "}
+					<span className="mb-[20px] font-medium text-black dark:text-white">
+						{name}
+					</span>
+				</div>
+			)}
+
+			{isLoading ? (
 				<Loader centered />
 			) : breed.data?.length ? (
 				data.map((grid, i) => (
@@ -64,21 +69,21 @@ const Search: NextPage<{ name: any }> = ({ name }) => {
 								component="div"
 								tabIndex="0"
 								isHoverable
-								title={item!.breeds!.map((breed) => breed.name)}
+								title={item?.breeds![0].name}
 								key={item?.id}
 							>
 								<Image
-									src={item!.url}
+									src={item?.url || ""}
 									layout="fill"
 									placeholder="blur"
-									blurDataURL={item!.url}
+									blurDataURL={item?.url}
 								/>
 							</GridItem>
 						))}
 					</Grid>
 				))
 			) : (
-				<UserLogItem text="No item found" />
+				<UserLogItem className="mt-[20px]" text="No item found" />
 			)}
 		</Container>
 	);
