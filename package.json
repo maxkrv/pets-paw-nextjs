@@ -22,7 +22,6 @@
     "react-redux": "^8.0.2",
     "sass": "^1.54.9",
     "tailwindcss-global-dark": "^1.0.1",
-    "useripple": "^1.0.4",
     "uuidv4": "^6.2.13"
   },
   "devDependencies": {
