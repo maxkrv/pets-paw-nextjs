@@ -1,5 +1,5 @@
 .search {
-	@apply w-full inline-flex items-center justify-center pr-[10px] bg-white rounded-[20px] gdark:bg-black-soft;
+	@apply w-full inline-flex items-center justify-center pr-[10px] outline-offset-[-2px] bg-white rounded-[20px] gdark:bg-black-soft;
 	@media (hover: hover) {
 		&:hover {
 			@apply outline outline-2 outline-primary-soft;
