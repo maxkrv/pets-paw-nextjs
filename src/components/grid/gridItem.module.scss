@@ -1,0 +1,47 @@
+.grid__item {
+	@apply relative rounded-[20px] overflow-hidden min-h-[140px] w-full;
+
+	&__wrapper {
+		@apply p-[10px];
+	}
+
+	&__hover {
+		@media (hover: hover) {
+			&:hover,
+			&:focus-within {
+				.grid__item__wrapper {
+					@apply absolute inset-0 bg-primary bg-opacity-50 transition-colors;
+				}
+
+				.grid__item__action {
+					@apply block;
+				}
+
+				.grid__item__title {
+					@apply visible bottom-[10px];
+				}
+			}
+		}
+	}
+
+	&__action {
+		@apply absolute hidden bottom-2/4 right-2/4 translate-y-2/4 translate-x-2/4;
+
+		@media (hover: none) {
+			@apply block absolute bottom-[10px] left-[10px] translate-y-0 translate-x-0;
+		}
+	}
+
+	&__title {
+		@apply absolute invisible bottom-[-100px] right-2/4 translate-x-2/4 w-full text-center leading-8 text-primary bg-white rounded-[10px] transition-all gdark:bg-black;
+		width: calc(100% - 16px);
+
+		@media (hover: none) {
+			@apply visible bottom-[10px];
+		}
+	}
+
+	img {
+		@apply rounded-[20px];
+	}
+}
