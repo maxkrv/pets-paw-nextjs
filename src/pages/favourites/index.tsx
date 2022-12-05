@@ -53,16 +53,15 @@ const Favourites: NextPage = () => {
 				createdAt: `${new Date().getHours()}:${new Date().getMinutes()}`,
 				imageId: item.image_id,
 				message: "was removed from Favourites",
-			})
+			}),
 		);
 
 		if (item.id === favouriteId) {
 			dispatch(setIsFavourite({ value: false, id: item.id }));
 		}
-
-		const a = data?.map((el) => el.find((el) => el.id === item.id));
-		console.log(a);
 	};
+
+	const isItemLoading = removeFavourite.isLoading || isFetching || isLoading;
 
 	return (
 		<Container className="h-full w-full relative">
@@ -72,7 +71,7 @@ const Favourites: NextPage = () => {
 			) : data?.length ? (
 				data?.map((grid, i) => (
 					<Grid className="mt-[20px] w-full" key={i}>
-						{grid.map((item, index, array) => (
+						{grid.map((item) => (
 							<GridItem
 								isHoverable
 								tabIndex={0}
@@ -81,17 +80,17 @@ const Favourites: NextPage = () => {
 										variant="default"
 										className="h-[40px] w-[40px]"
 										aria-label="remove from favourite"
-										disabled={removeFavourite.isLoading}
+										disabled={isItemLoading}
 										onClick={() =>
 											removeFavouriteHandler(item)
 										}
 									>
-										{isFetching &&
+										{isItemLoading &&
 										removeFavourite.variables
 											?.favourite_id === item.id ? (
 											<Loader className="!h-5 !w-5 !border-2" />
 										) : (
-											<HeartFilled />
+											<HeartFilled className="!fill-primary" />
 										)}
 									</Button>
 								}
