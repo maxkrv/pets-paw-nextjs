@@ -48,4 +48,8 @@ export const ImageService = {
 		});
 		return response.data;
 	},
+	getImageById: async (id: string) => {
+		const response = await api.get<getImageResponse>(`/images/${id}`);
+		return response.data;
+	},
 };
