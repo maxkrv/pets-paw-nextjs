@@ -12,7 +12,7 @@ import UserLogItem from "../../components/userLog/userLogItem";
 import GridItem from "../../components/grid/gridItem";
 import Image from "next/image";
 
-const Search: NextPage<{ name: any }> = ({ name }) => {
+const Search: NextPage<{ name: string }> = ({ name }) => {
 	const breed = useQuery({
 		queryKey: ["breed"],
 		queryFn: () => BreedService.getBreedByName(name),
@@ -90,7 +90,7 @@ const Search: NextPage<{ name: any }> = ({ name }) => {
 };
 
 Search.getInitialProps = async ({ query }) => {
-	const { name } = query;
+	const { name } = query as { name: string };
 
 	return { name };
 };
