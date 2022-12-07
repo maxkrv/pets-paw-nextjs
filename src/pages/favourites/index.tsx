@@ -28,8 +28,6 @@ const Favourites: NextPage = () => {
 		queryKey: ["favourites"],
 		queryFn: () => FavouriteService.getFavourites({ sub_id: id! }),
 		select: (data) => splitIntoChunks(data, 10),
-		refetchOnMount: true,
-		retryOnMount: true,
 	});
 	const removeFavourite = useMutation<
 		{ message: string },

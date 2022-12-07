@@ -28,7 +28,6 @@ const Dislikes: NextPage = () => {
 				data.filter((item) => item.value === 0),
 				10
 			),
-		refetchOnMount: true,
 	});
 
 	return (

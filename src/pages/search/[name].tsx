@@ -16,7 +16,6 @@ const Search: NextPage<{ name: string }> = ({ name }) => {
 	const breed = useQuery({
 		queryKey: ["breed"],
 		queryFn: () => BreedService.getBreedByName(name),
-		refetchOnMount: true,
 		select: (data) => data.filter((breed) => breed.reference_image_id),
 	});
 	const breeds = !breed.isLoading || !breed.isFetching ? breed.data : [];

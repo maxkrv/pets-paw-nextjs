@@ -32,6 +32,7 @@ const Voting: NextPage = () => {
 			ImageService.getImages({
 				limit: 1,
 			}),
+		refetchOnMount: false,
 	});
 	const setVote = useMutation<SetResponse, any, SetVoteServiceParams>({
 		mutationFn: ({ image_id, sub_id, value }) =>

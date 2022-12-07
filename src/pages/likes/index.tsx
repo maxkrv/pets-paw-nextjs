@@ -28,7 +28,6 @@ const Likes: NextPage = () => {
 				data.filter((item) => item.value === 1),
 				10
 			),
-		refetchOnMount: true,
 	});
 
 	return (
