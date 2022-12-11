@@ -22,17 +22,20 @@ export interface getImageResponse {
 }
 
 export const ImageService = {
-	getImages: async ({
-		size,
-		mime_types,
-		format,
-		order,
-		page,
-		limit,
-		category_ids,
-		breed_ids,
-		has_breeds,
-	}: getImageServiceParams) => {
+	getImages: async (
+		{
+			size,
+			mime_types,
+			format,
+			order,
+			page,
+			limit,
+			category_ids,
+			breed_ids,
+			has_breeds,
+		}: getImageServiceParams,
+		returnValue: "headers" | "data" = "data"
+	) => {
 		const response = await api.get<getImageResponse[]>("/images/search", {
 			params: {
 				size,
@@ -46,7 +49,7 @@ export const ImageService = {
 				has_breeds,
 			},
 		});
-		return response.data;
+		return returnValue === "headers" ? response.headers : response.data;
 	},
 	getImageById: async (id: string) => {
 		const response = await api.get<getImageResponse>(`/images/${id}`);

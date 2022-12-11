@@ -7,7 +7,7 @@ import Image from "next/image";
 import Button from "../../components/ui/button/button";
 import { Heart, HeartFilled, Sad, Smile } from "../../assets/svg";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { ImageService } from "../../service/image.service";
+import { getImageResponse, ImageService } from "../../service/image.service";
 import Loader from "../../components/ui/loader/loader";
 import { SetVoteServiceParams, VoteService } from "../../service/vote.service";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
@@ -26,7 +26,12 @@ const Voting: NextPage = () => {
 		(state) => state.isFavourite
 	);
 
-	const { data, isLoading, isFetching } = useQuery({
+	const { data, isLoading, isFetching } = useQuery<
+		getImageResponse[],
+		any,
+		getImageResponse[],
+		any
+	>({
 		queryKey: ["image"],
 		queryFn: () =>
 			ImageService.getImages({
