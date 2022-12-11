@@ -6,12 +6,14 @@ import Tag from "../tag/tag";
 
 interface ContainerHeaderProps extends ComponentPropsWithoutRef<"div"> {
 	title: string;
+	titleVariant?: "primary" | "primarySoft";
 	children?: ReactNode;
 }
 
 const ContainerHeader: FC<ContainerHeaderProps> = ({
 	title,
 	children,
+	titleVariant = "primary",
 	...props
 }) => {
 	const ContainerHeaderClasses = classNames({
@@ -23,7 +25,7 @@ const ContainerHeader: FC<ContainerHeaderProps> = ({
 	return (
 		<div className={ContainerHeaderClasses} {...props}>
 			<BackButton />
-			<Tag>{title}</Tag>
+			<Tag variant={titleVariant}>{title}</Tag>
 			{children}
 		</div>
 	);
