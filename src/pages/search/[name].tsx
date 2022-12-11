@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NextPage } from "next";
 import Container from "../../components/container/container";
 import ContainerHeader from "../../components/containerHeader/containerHeader";
@@ -14,7 +14,7 @@ import Image from "next/image";
 
 const Search: NextPage<{ name: string }> = ({ name }) => {
 	const breed = useQuery({
-		queryKey: ["breed"],
+		queryKey: ["breed", name],
 		queryFn: () => BreedService.getBreedByName(name),
 		select: (data) => data.filter((breed) => breed.reference_image_id),
 	});
@@ -40,10 +40,6 @@ const Search: NextPage<{ name: string }> = ({ name }) => {
 		images.some((item) => item.isFetching) ||
 		breed.isLoading ||
 		breed.isFetching;
-
-	useEffect(() => {
-		breed.refetch();
-	}, [name]);
 
 	return (
 		<Container>
