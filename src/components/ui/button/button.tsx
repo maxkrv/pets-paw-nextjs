@@ -42,7 +42,6 @@ function Button<E extends ElementType = typeof defaultElement>(
 		[classes.button__gray]: variant === "gray",
 		["w-full"]: fullWidth,
 	});
-
 	delete props.className;
 
 	return (
