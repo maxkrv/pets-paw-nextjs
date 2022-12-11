@@ -20,6 +20,21 @@ const renderThumb = ({ style, ...props }: ComponentPropsWithoutRef<"div">) => {
 	);
 };
 
+const renderTrackHorizontal = ({
+	style,
+	...props
+}: ComponentPropsWithoutRef<"div">) => {
+	return (
+		<div
+			style={{
+				display: "none",
+				...style,
+			}}
+			{...props}
+		/>
+	);
+};
+
 const Container: FC<ContainerProps> = ({ children, ...props }) => {
 	const containerClasses = classNames({
 		[classes.container]: true,
@@ -28,8 +43,12 @@ const Container: FC<ContainerProps> = ({ children, ...props }) => {
 	delete props.className;
 
 	return (
-		<main className={containerClasses}>
-			<Scrollbars renderThumbVertical={renderThumb} universal>
+		<main className={containerClasses} {...props}>
+			<Scrollbars
+				renderThumbVertical={renderThumb}
+				renderTrackHorizontal={renderTrackHorizontal}
+				universal
+			>
 				{children}
 			</Scrollbars>
 		</main>
