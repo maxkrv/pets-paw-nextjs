@@ -1,5 +1,5 @@
 import React, { ComponentPropsWithoutRef, FC, ReactNode } from "react";
-import classes from "./Stack.module.scss";
+import classes from "./stack.module.scss";
 import classNames from "classnames";
 
 export interface StackProps extends ComponentPropsWithoutRef<"div"> {
