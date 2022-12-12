@@ -1,0 +1,7 @@
+.modal {
+	@apply fixed h-full w-full z-10 top-0 left-0 opacity-0 invisible bg-black bg-opacity-60 transition-all;
+
+	&.active {
+		@apply opacity-100 visible;
+	}
+}

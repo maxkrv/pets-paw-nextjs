@@ -3,6 +3,7 @@ import idSlice from "./reducers/idSlice";
 import userLogSlice from "./reducers/userLogSlice";
 import isFavouriteSlice from "./reducers/isFavouriteSlice";
 import drawerSlice from "./reducers/drawerSlice";
+import modalSlice from "./reducers/modalSlice";
 
 const store = configureStore({
 	reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
 		userLog: userLogSlice,
 		isFavourite: isFavouriteSlice,
 		drawer: drawerSlice,
+		modal: modalSlice,
 	},
 });
 
