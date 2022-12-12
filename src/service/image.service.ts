@@ -5,7 +5,7 @@ import { GetParams } from "../types/getParams";
 
 export interface getImageServiceParams extends GetParams {
 	size?: "small" | "med" | "full";
-	mime_types?: "gif" | "jpg" | "png";
+	mime_types?: "all" | "gif" | "jpg" | "png";
 	format?: "src" | "json";
 	category_ids?: number;
 	breed_ids?: string;
