@@ -14,6 +14,7 @@ const Tag: FC<TagProps> = ({ variant = "primary", children, ...props }) => {
 		[classes.tag__primmarySoft]: variant === "primarySoft",
 		[props.className as string]: true,
 	});
+	delete props.className;
 
 	return (
 		<span className={tagClasses} {...props}>
