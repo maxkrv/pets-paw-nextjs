@@ -13,3 +13,19 @@ body {
 #__next {
 	@apply p-[30px] h-full max-w-[1920px] m-auto relative sm:p-[20px];
 }
+
+.carousel-slider {
+	overflow: visible !important;
+}
+
+.control-dots {
+	@apply absolute bottom-[-15px] right-2/4 translate-x-2/4 m-0 flex gap-[5px] p-[10px] rounded-[20px] bg-white w-fit dark:bg-black-soft #{!important};
+}
+
+.dot {
+	@apply m-0 h-[10px] w-[10px] shadow-none bg-primary-soft opacity-100 dark:bg-primary-dark #{!important};
+}
+
+.dot.selected {
+	@apply bg-primary #{!important};
+}

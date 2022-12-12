@@ -20,6 +20,7 @@
     "react-custom-scrollbars-2": "^4.5.0",
     "react-dom": "18.2.0",
     "react-redux": "^8.0.2",
+    "react-responsive-carousel": "^3.2.23",
     "sass": "^1.54.9",
     "tailwindcss-global-dark": "^1.0.1",
     "uuidv4": "^6.2.13"
