@@ -10,6 +10,7 @@ module.exports = {
 				success: "#97EAB9",
 				warning: "#FFD280",
 				purple: "#B4B7FF",
+				"white-soft": "#F8F8F8",
 				gray: "#E5E5E5",
 				"gray-dark": "#8C8C8C",
 				black: "#1D1D1D",

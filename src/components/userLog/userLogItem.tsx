@@ -22,7 +22,7 @@ const UserLogItem: FC<UserLogItemProps> = ({
 }) => {
 	const userLogItemClasses = classNames({
 		[classes.userLogItem]: true,
-		["bg-[#F8F8F7]"]: variant === "gray",
+		["bg-white-soft"]: variant === "gray",
 		["bg-white"]: variant === "white",
 		[props.className as string]: true,
 	});
