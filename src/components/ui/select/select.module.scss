@@ -1,0 +1,14 @@
+.select {
+	@apply relative pl-[10px] border-r-[10px] border-r-transparent h-[40px] rounded-[10px] outline-offset-[-2px] outline-transparent bg-gray text-gray-dark transition-all gdark:bg-black-light;
+
+	&:disabled {
+		@apply cursor-not-allowed;
+	}
+
+	@media (hover: hover) {
+		&:hover,
+		&:focus {
+			@apply outline outline-2 outline-primary-soft gdark:outline-primary-dark;
+		}
+	}
+}
