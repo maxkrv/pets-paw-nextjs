@@ -3,5 +3,5 @@ export interface GetParams {
 	sub_id?: string;
 	page?: number;
 	limit?: number;
-	order?: "ASC" | "DESC";
+	order?: "ASC" | "DESC" | "RANDOM";
 }
