@@ -72,6 +72,7 @@ const Search: NextPage<{ name: string }> = ({ name }) => {
 									layout="fill"
 									placeholder="blur"
 									blurDataURL={item?.url}
+									alt={item?.breeds![0].name}
 								/>
 							</GridItem>
 						))}
