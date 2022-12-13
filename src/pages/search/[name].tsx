@@ -11,6 +11,7 @@ import Grid from "../../components/grid/grid";
 import UserLogItem from "../../components/userLog/userLogItem";
 import GridItem from "../../components/grid/gridItem";
 import Image from "next/image";
+import Link from "next/link";
 
 const Search: NextPage<{ name: string }> = ({ name }) => {
 	const breed = useQuery({
@@ -60,21 +61,26 @@ const Search: NextPage<{ name: string }> = ({ name }) => {
 				data.map((grid, i) => (
 					<Grid className="mt-[20px] w-full" key={i}>
 						{grid.map((item) => (
-							<GridItem
-								component="div"
-								tabIndex="0"
-								isHoverable
-								title={item?.breeds![0].name}
+							<Link
+								href={`../breeds/${item?.breeds![0]?.id}`}
+								passHref
 								key={item?.id}
 							>
-								<Image
-									src={item?.url || ""}
-									layout="fill"
-									placeholder="blur"
-									blurDataURL={item?.url}
-									alt={item?.breeds![0].name}
-								/>
-							</GridItem>
+								<GridItem
+									component="a"
+									tabIndex="1"
+									isHoverable
+									title={item?.breeds![0].name}
+								>
+									<Image
+										src={item?.url || ""}
+										layout="fill"
+										placeholder="blur"
+										blurDataURL={item?.url}
+										alt={item?.breeds![0].name}
+									/>
+								</GridItem>
+							</Link>
 						))}
 					</Grid>
 				))
