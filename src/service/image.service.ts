@@ -21,6 +21,14 @@ export interface getImageResponse {
 	height: number;
 }
 
+export interface uploadImageResponse {
+	id: string;
+	url: string;
+	sub_id: string;
+	width: number;
+	height: number;
+}
+
 export const ImageService = {
 	getImages: async (
 		{
@@ -53,6 +61,16 @@ export const ImageService = {
 	},
 	getImageById: async (id: string) => {
 		const response = await api.get<getImageResponse>(`/images/${id}`);
+		return response.data;
+	},
+	uploadImage: async (file: File, subId?: string) => {
+		const formData = new FormData();
+		formData.append("file", file);
+		formData.append("sub_id", subId || "");
+		const response = await api.post<uploadImageResponse>(
+			"/images/upload",
+			formData
+		);
 		return response.data;
 	},
 };
