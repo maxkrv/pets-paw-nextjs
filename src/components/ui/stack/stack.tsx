@@ -1,8 +1,9 @@
-import React, { ComponentPropsWithoutRef, FC, ReactNode } from "react";
+import React, { ComponentPropsWithRef, FC, ReactNode } from "react";
 import classes from "./stack.module.scss";
 import classNames from "classnames";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
-export interface StackProps extends ComponentPropsWithoutRef<"div"> {
+export interface StackProps extends ComponentPropsWithRef<"div"> {
 	children: ReactNode;
 	gap?: number;
 }
@@ -13,9 +14,15 @@ const Stack: FC<StackProps> = ({ children, gap = 10, ...props }) => {
 		[props.className as string]: true,
 	});
 	delete props.className;
+	const [parent] = useAutoAnimate<any>();
 
 	return (
-		<div className={stackClasses} style={{ gap: gap }} {...props}>
+		<div
+			className={stackClasses}
+			style={{ gap: gap }}
+			{...props}
+			ref={parent}
+		>
 			{children}
 		</div>
 	);
