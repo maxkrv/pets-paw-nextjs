@@ -13,6 +13,7 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 import Nav from "../nav/nav";
 import Logo from "../logo";
 import DarkModeSwitcher from "../darkModeSwitcher/darkModeSwitcher";
+import Socials from "../socials/socials";
 
 interface HeaderProps extends ComponentPropsWithoutRef<"header"> {}
 
@@ -98,6 +99,8 @@ const Header: FC<HeaderProps> = ({ ...props }) => {
 							</Button>
 						</div>
 						<Nav className="flex justify-center sm:block" />
+
+						<Socials className="mt-[20px] justify-center" />
 					</div>
 				</DynamicDrawer>
 			)}

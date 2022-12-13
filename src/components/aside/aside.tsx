@@ -3,6 +3,7 @@ import Logo from "../logo";
 import DarkModeSwitcher from "../darkModeSwitcher/darkModeSwitcher";
 import Nav from "../nav/nav";
 import classNames from "classnames";
+import Socials from "../socials/socials";
 
 interface AsideProps extends ComponentPropsWithoutRef<"aside"> {}
 
@@ -31,6 +32,8 @@ const Aside: FC<AsideProps> = ({ ...props }) => {
 			</div>
 
 			<Nav text="Lets start using The Cat API" />
+
+			<Socials className="mt-[20px] justify-center" />
 		</aside>
 	);
 };
