@@ -32,7 +32,12 @@ const UserLogItem: FC<UserLogItemProps> = ({
 		<div className={userLogItemClasses} {...props}>
 			{iconPosition === "start" && icon}
 			{time && <span className={classes.userLogItem__time}>{time}</span>}
-			<p className={classes.userLogItem__text}>
+			<p
+				className={classNames({
+					[classes.userLogItem__text]: true,
+					["sm:order-1 sm:min-w-full"]: iconPosition === "end",
+				})}
+			>
 				{imageId && (
 					<>
 						Image ID:{" "}

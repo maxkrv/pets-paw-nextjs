@@ -6,7 +6,7 @@
 	}
 
 	&__text {
-		@apply flex-1 whitespace-pre-wrap font-medium text-gray-dark sm:order-1 sm:min-w-full;
+		@apply flex-1 font-medium text-gray-dark;
 
 		span {
 			@apply text-black gdark:text-white;
