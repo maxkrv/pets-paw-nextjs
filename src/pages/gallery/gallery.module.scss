@@ -1,0 +1,13 @@
+.gallery {
+	&__options {
+		@apply p-[20px] grid grid-cols-2 gap-[20px] bg-white-soft rounded-[20px] gdark:bg-black-light sm:grid-cols-1;
+
+		&__title {
+			@apply ml-[9px] font-medium text-[10px] uppercase text-gray-dark;
+		}
+
+		&__select {
+			@apply w-full text-black bg-white gdark:text-white gdark:bg-black #{!important};
+		}
+	}
+}
