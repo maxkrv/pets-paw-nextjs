@@ -10,6 +10,10 @@ body {
 	-webkit-tap-highlight-color: transparent;
 }
 
+img {
+	object-fit: cover;
+}
+
 #__next {
 	@apply p-[30px] h-full max-w-[1920px] m-auto relative sm:p-[20px];
 }
