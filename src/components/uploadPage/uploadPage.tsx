@@ -74,6 +74,7 @@ const UploadPage: FC<ComponentPropsWithoutRef<"div">> = ({ ...props }) => {
 					type="file"
 					id="file"
 					accept="image/png, image/jpg, image/jpeg"
+					disabled={uploadHandler.isLoading}
 					onChange={(e) => setFile(e.target.files![0])}
 				/>
 			</div>
