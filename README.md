@@ -8,12 +8,12 @@ https://petspaw-maxkrv.vercel.app/
 
 ## Project setup
 
-1. Use the package manager [npm](https://pip.pypa.io/en/stable/) to install dependencies.
+1. Use the package manager [npm](https://www.npmjs.com/) to install dependencies.
 ```bash
 npm install
 ```
-1. Make .env file, using template from [.env.example](https://github.com/maxkrv/pets-paw-nextjs/blob/main/.env.example).
-1. Start dev server.
+2. Make .env file, using template from [.env.example](https://github.com/maxkrv/pets-paw-nextjs/blob/main/.env.example).
+3. Start dev server.
 ```bash
 npm run dev
 ```
