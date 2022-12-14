@@ -87,6 +87,7 @@ const Gallery: NextPage = () => {
 	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
+		setOptions({ ...options, page: 0 });
 		refetch();
 		imageHeaders.refetch();
 	};
@@ -118,7 +119,6 @@ const Gallery: NextPage = () => {
 								setOptions({
 									...options,
 									order: e.target.value as IOptions["order"],
-									page: 0,
 								})
 							}
 							disabled={isLoading}
@@ -140,7 +140,6 @@ const Gallery: NextPage = () => {
 									...options,
 									mime_types: e.target
 										.value as IOptions["mime_types"],
-									page: 0,
 								})
 							}
 							disabled={isLoading}
@@ -162,7 +161,6 @@ const Gallery: NextPage = () => {
 								setOptions({
 									...options,
 									breed_ids: e.target.value,
-									page: 0,
 								})
 							}
 							disabled={isLoading}
@@ -187,7 +185,6 @@ const Gallery: NextPage = () => {
 									setOptions({
 										...options,
 										limit: +e.target.value,
-										page: 0,
 									})
 								}
 								disabled={isLoading}
