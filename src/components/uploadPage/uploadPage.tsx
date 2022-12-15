@@ -99,6 +99,7 @@ const UploadPage: FC<ComponentPropsWithoutRef<"div">> = ({ ...props }) => {
 				{uploadHandler.status === "success" && (
 					<UserLogItem
 						className="mt-[20px]"
+						variant="white"
 						icon={<Success className="fill-success" />}
 						iconPosition="start"
 						text="Thanks for the Upload - Cat found!"
@@ -108,6 +109,7 @@ const UploadPage: FC<ComponentPropsWithoutRef<"div">> = ({ ...props }) => {
 				{uploadHandler.status === "error" && (
 					<UserLogItem
 						className="mt-[20px]"
+						variant="white"
 						icon={<Error className="fill-primary" />}
 						iconPosition="start"
 						text="No Cat found - try a different one"
